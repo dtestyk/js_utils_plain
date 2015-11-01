@@ -1,0 +1,5 @@
+some depencies may not ready when they call
+example: get_args_obj_usage.js
+possible solution: use promise and call resolve() at end of loaded script
+
+solution: all nested depencies to top
