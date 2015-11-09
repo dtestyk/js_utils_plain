@@ -9220,13 +9220,15 @@ module.exports = ZStream;
     function(node) {
       var arr_text_nodes = node.querySelectorAll('[contenteditable=true]')
       var header_node = arr_text_nodes[0]
-      var note_node = arr_text_nodes[1]
+      var note_nodes = Array.prototype.slice.call(arr_text_nodes, 1)
       var tag_nodes = node.querySelector('.IZ65Hb-x00ATb').childNodes
+      var arr_str_note = Array.prototype.map.call(note_nodes, get_text)
+      var note_text = arr_str_note.join('\n')
       var arr_tags = Array.prototype.map.call(tag_nodes, get_text)
 
       arr_texts[i_note] = {
         header: header_node.innerText,
-        text: note_node.innerText,
+        text: note_text,
         tags: arr_tags
       }
       
